@@ -11,9 +11,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
      domain="dev-y7agkmqetvk26r0j.us.auth0.com"
      clientId="vgHbkPBe3b4vcJK5kRtp3uQuGRDhbS4e"
      authorizationParams={{
-      redirect_uri: "http://localhost:5173"
+      redirect_uri: "https://solar-project-site.vercel.app"
      }}
-     audience="http://localhost:8000"
+     audience="https://solar-project-snowy.vercel.app/"
      scope="openid profile email"
     >
       <App />
