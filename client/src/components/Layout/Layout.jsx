@@ -87,7 +87,7 @@ const Layout = () => {
     const getTokenAndRegister = async () => {
       try {
         const token = await getAccessTokenSilently({
-          audience: "http://localhost:8000",
+          audience: "https://solar-project-snowy.vercel.app",
           scope: "openid profile email",
         });
         localStorage.setItem("access_token", token);
