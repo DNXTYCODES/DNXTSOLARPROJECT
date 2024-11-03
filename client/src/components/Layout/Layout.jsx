@@ -1,4 +1,3 @@
-2004569611
 // import React, { useContext, useEffect } from "react";
 // import Header from "../Header/Header";
 // import Footer from "../Footer/Footer";
@@ -52,22 +51,6 @@
 // };
 
 // export default Layout;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // post-gpt layout
 
@@ -138,23 +121,6 @@
 
 // export default Layout;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // post-post-gpt layout
 
 import React, { useContext, useEffect } from "react";
@@ -192,18 +158,18 @@ const Layout = () => {
     const getTokenAndRegister = async () => {
       try {
         const token = await getAccessTokenSilently({
-          audience: "https://solar-project-snowy.vercel.app",
+          audience: "https://solarbackend-eight.vercel.app/",
           scope: "openid profile email",
         });
         localStorage.setItem("access_token", token);
-        
+
         // Ensure setUserDetails is defined before using it
         if (setUserDetails) {
           setUserDetails((prev) => ({ ...prev, token }));
         } else {
           console.error("UserDetailContext is not properly initialized.");
         }
-        
+
         mutate(token);
       } catch (error) {
         console.error("Error fetching access token:", error);
