@@ -27,7 +27,7 @@ const getToken = async () => {
   }
 };
 
-// Middleware to check JWT
+// Middleware to check JWT45
 const jwtCheck = auth({
   audience: audience,
   issuerBaseURL: 'https://dev-y7agkmqetvk26r0j.us.auth0.com',
