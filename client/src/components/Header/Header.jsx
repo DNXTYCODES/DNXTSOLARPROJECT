@@ -48,7 +48,7 @@ const Header = () => {
           >
             <NavLink to="/properties">Properties</NavLink>
 
-            <a href="mailto:zainkeepscode@gmail.com">Contact</a>
+            <a href="mailto:ayomatthew891@gmail.com">Contact</a>
 
             {/* add property only available if authenticated */}
             
