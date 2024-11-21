@@ -298,8 +298,7 @@ import express from "express";
 
 // Auth0 credentials from environment variables
 const clientId = "vgHbkPBe3b4vcJK5kRtp3uQuGRDhbS4e";
-const clientSecret =
-  "s735oKP1AHC2HALHxnzAtT3b86wrI5O5fyEAji2BuG_pNbFxrhQSSjikelj4YQRN";
+const clientSecret = "s735oKP1AHC2HALHxnzAtT3b86wrI5O5fyEAji2BuG_pNbFxrhQSSjikelj4YQRN";
 const audience = "https://solarbackend-eight.vercel.app/";
 const tokenUrl = "https://dev-y7agkmqetvk26r0j.us.auth0.com/oauth/token";
 const issuerBaseURL = "https://dev-y7agkmqetvk26r0j.us.auth0.com";
