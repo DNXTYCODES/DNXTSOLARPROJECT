@@ -297,11 +297,11 @@ import axios from "axios";
 import express from "express";
 
 // Auth0 credentials from environment variables
-const clientId = "vgHbkPBe3b4vcJK5kRtp3uQuGRDhbS4e";
-const clientSecret = "s735oKP1AHC2HALHxnzAtT3b86wrI5O5fyEAji2BuG_pNbFxrhQSSjikelj4YQRN";
-const audience = "https://solarbackend-eight.vercel.app/";
-const tokenUrl = "https://dev-y7agkmqetvk26r0j.us.auth0.com/oauth/token";
-const issuerBaseURL = "https://dev-y7agkmqetvk26r0j.us.auth0.com";
+const clientId = process.env.AUTH0_CLIENT_ID;
+const clientSecret = process.env.AUTH0_CLIENT_SECRET;
+const audience = process.env.AUTH0_AUDIENCE;
+const tokenUrl = process.env.AUTH0_TOKEN_URL;
+const issuerBaseURL = process.env.AUTH0_ISSUER_BASE_URL;
 
 // Validate environment variables
 if (!clientId || !clientSecret || !audience || !tokenUrl || !issuerBaseURL) {
