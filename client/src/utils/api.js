@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import { toast } from "react-toastify";
 
 export const api = axios.create({
-  baseURL: "https://solarbackend-eight.vercel.app/api",
+  baseURL: "solarfrontend-c9rcwk11o-matthewcodezs-projects.vercel.app/api",
 });
 
 export const getAllProperties = async () => {
