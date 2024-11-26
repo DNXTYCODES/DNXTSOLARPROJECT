@@ -36,23 +36,24 @@ const Residencies = () => {
 
 
   return (
-    <div id="residencies" className="r-wrapper">
-      <div className="paddings innerWidth r-container">
-        <div className="flexColStart r-head">
-          <span className="orangeText">Best Choices</span>
-          <span className="primaryText">Popular Products</span>
-        </div>
-        <Swiper {...sliderSettings}>
-          <SlideNextButton />
-          {/* slider */}
-          {data.slice(0, 8).map((card, i) => (
-            <SwiperSlide key={i}>
-              <PropertyCard card={card}/>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </div>
+    // <div id="residencies" className="r-wrapper">
+    //   <div className="paddings innerWidth r-container">
+    //     <div className="flexColStart r-head">
+    //       <span className="orangeText">Best Choices</span>
+    //       <span className="primaryText">Popular Products</span>
+    //     </div>
+    //     <Swiper {...sliderSettings}>
+    //       <SlideNextButton />
+    //       {/* slider */}
+    //       {data.slice(0, 8).map((card, i) => (
+    //         <SwiperSlide key={i}>
+    //           <PropertyCard card={card}/>
+    //         </SwiperSlide>
+    //       ))}
+    //     </Swiper>
+    //   </div>
+    // </div>
+    "THE RESIDENCY LIST"
   );
 };
 
