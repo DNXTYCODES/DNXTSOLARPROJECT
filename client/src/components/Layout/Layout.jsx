@@ -158,7 +158,7 @@ const Layout = () => {
     const getTokenAndRegister = async () => {
       try {
         const token = await getAccessTokenSilently({
-          audience: "https://solarbackend-eight.vercel.app/",
+          audience: "https://dnxtsolarprojectttbackend.onrender.com/",
           scope: "openid profile email",
         });
         localStorage.setItem("access_token", token);

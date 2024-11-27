@@ -10,9 +10,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       domain="dev-y7agkmqetvk26r0j.us.auth0.com"
       clientId="CPK1t6vfPt9ZIgCxMLEPjbpAhNOfYOEP"
       authorizationParams={{
-        redirect_uri: "https://solarfrontend-c9rcwk11o-matthewcodezs-projects.vercel.app",
+        redirect_uri: "https://dnxtsolarprojecttt.onrender.com",
       }}
-      audience="https://solarbackend-eight.vercel.app/"
+      audience="https://dnxtsolarprojectttbackend.onrender.com/"
       scope="openid profile email"
     >
       <App />

@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 export const api = axios.create({
   // baseURL: "solarfrontend-c9rcwk11o-matthewcodezs-projects.vercel.app/api",
-  baseURL: "solarbackend-eight.vercel.app/api",
+  baseURL: "https://dnxtsolarprojectttbackend.onrender.com/api",
 });
 
 export const getAllProperties = async () => {
