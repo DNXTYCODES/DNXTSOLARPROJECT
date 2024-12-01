@@ -166,11 +166,11 @@ export const createResidency = async (data, token) => {
       {
         data,
       },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
+      // {
+      //   headers: {
+      //     Authorization: `Bearer ${token}`,
+      //   },
+      // }
     );
   } catch (error) {
     throw error;
