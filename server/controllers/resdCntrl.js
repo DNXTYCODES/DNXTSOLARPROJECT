@@ -65,11 +65,10 @@
 // });
 
 
-
 import asyncHandler from "express-async-handler";
-
 import { prisma } from "../config/prismaConfig.js";
 
+// Function to create a residency
 export const createResidency = asyncHandler(async (req, res) => {
   const {
     title,
@@ -81,10 +80,26 @@ export const createResidency = asyncHandler(async (req, res) => {
     facilities,
     image,
     userEmail,
-  } = req.body.data;
+  } = req.body; // Adjusted to directly access req.body
 
-  console.log(req.body.data);
   try {
+    // Check if the owner (user) exists
+    const ownerExists = await prisma.user.findUnique({
+      where: { email: userEmail },
+    });
+    if (!ownerExists) {
+      return res.status(400).send({ message: "User not found" });
+    }
+
+    // Check for duplicate residency by address
+    const existingResidency = await prisma.residency.findUnique({
+      where: { address },
+    });
+    if (existingResidency) {
+      return res.status(400).send({ message: "A residency with this address already exists." });
+    }
+
+    // Create the residency
     const residency = await prisma.residency.create({
       data: {
         title,
@@ -99,26 +114,32 @@ export const createResidency = asyncHandler(async (req, res) => {
       },
     });
 
-    res.send({ message: "Residency created successfully", residency });
+    return res.send({ message: "Residency created successfully", residency });
   } catch (err) {
+    console.error("Error creating residency:", err);
     if (err.code === "P2002") {
-      throw new Error("A residency with address already there");
+      return res.status(400).send({ message: "A residency with this address already exists." });
     }
-    throw new Error(err.message);
+    return res.status(500).send({ message: "An unexpected error occurred." });
   }
 });
 
-// function to get all the documents/residencies
+// Function to get all residencies
 export const getAllResidencies = asyncHandler(async (req, res) => {
-  const residencies = await prisma.residency.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
-  res.send(residencies);
+  try {
+    const residencies = await prisma.residency.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+    return res.send(residencies);
+  } catch (err) {
+    console.error("Error fetching residencies:", err);
+    return res.status(500).send({ message: "Failed to fetch residencies." });
+  }
 });
 
-// function to get a specific document/residency
+// Function to get a specific residency by ID
 export const getResidency = asyncHandler(async (req, res) => {
   const { id } = req.params;
 
@@ -126,8 +147,14 @@ export const getResidency = asyncHandler(async (req, res) => {
     const residency = await prisma.residency.findUnique({
       where: { id },
     });
-    res.send(residency);
+
+    if (!residency) {
+      return res.status(404).send({ message: "Residency not found" });
+    }
+
+    return res.send(residency);
   } catch (err) {
-    throw new Error(err.message);
+    console.error("Error fetching residency:", err);
+    return res.status(500).send({ message: "Failed to fetch residency." });
   }
 });
