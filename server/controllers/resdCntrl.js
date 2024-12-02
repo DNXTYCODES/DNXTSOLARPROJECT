@@ -154,7 +154,7 @@ export const getResidency = asyncHandler(async (req, res) => {
 
     return res.send(residency);
   } catch (err) {
-    console.error("Error fetching residency:", err);
+    console.error("Error fetching residency:", err.message, err.stack);
     return res.status(500).send({ message: "Failed to fetch residency." });
   }
 });
