@@ -313,7 +313,8 @@ const tokenRequestData = {
   client_id: clientId,
   client_secret: clientSecret,
   audience: audience,
-  grant_type: "client_credentials",
+  grant_type: "authorization_code",
+  // grant_type: "client_credentials",
 };
 
 // Function to fetch an access token
