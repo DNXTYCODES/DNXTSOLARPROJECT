@@ -11,24 +11,26 @@ const Hero = () => {
           <div className="hero-title">
             <div className="orange-circle" />
             <motion.h1
-            initial={{ y: "2rem", opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{
-              duration: 2,
-              type: "ease-in",
-            }}
+              initial={{ y: "2rem", opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{
+                duration: 2,
+                type: "ease-in",
+              }}
             >
-              Discover <br />
-              Most Suitable
-              <br /> Solar Solutions
+              Power Your Future
+              <br />
+              with Clean
+              <br /> Affordable Energy
             </motion.h1>
           </div>
           <div className="flexColStart secondaryText flexhero-des">
-            <span>Find a variety of Solar Products that suit your needs</span>
-            <span>Forget all difficulties in finding a Solar Setup</span>
+            <span>Harness the power of the sun with our state-of-the-art solar solutions.</span>
+            <span>Save money, embrace sustainability, and take control of your energy future today.</span>
+            get a free quote now
           </div>
 
-          <SearchBar/>
+          <SearchBar />
 
           <div className="flexCenter stats">
             <div className="flexColCenter stat">
