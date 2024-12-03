@@ -230,6 +230,84 @@
 
 
 
+// import asyncHandler from "express-async-handler";
+// import { prisma } from "../config/prismaConfig.js";
+
+// // Create a residency
+// export const createResidency = asyncHandler(async (req, res) => {
+//   const {
+//     title,
+//     description,
+//     price,
+//     address,
+//     country,
+//     city,
+//     facilities,
+//     image,
+//   } = req.body.data;
+
+//   try {
+//     const residency = await prisma.residency.create({
+//       data: {
+//         title,
+//         description,
+//         price,
+//         address,
+//         country,
+//         city,
+//         facilities,
+//         image,
+//       },
+//     });
+
+//     res.send({ message: "Residency created successfully", residency });
+//   } catch (err) {
+//     console.error("Error creating residency:", err.message);
+
+//     if (err.code === "P2002") {
+//       return res.status(400).send({ message: "Residency with this address already exists" });
+//     }
+
+//     res.status(500).send({ message: err.message });
+//   }
+// });
+
+// // Get all residencies
+// export const getAllResidencies = asyncHandler(async (req, res) => {
+//   try {
+//     const residencies = await prisma.residency.findMany({
+//       orderBy: {
+//         createdAt: "desc",
+//       },
+//     });
+//     res.send(residencies);
+//   } catch (err) {
+//     res.status(500).send({ message: "Error fetching residencies" });
+//   }
+// });
+
+// // Get a specific residency
+// export const getResidency = asyncHandler(async (req, res) => {
+//   const { id } = req.params;
+
+//   try {
+//     const residency = await prisma.residency.findUnique({
+//       where: { id },
+//     });
+
+//     if (!residency) {
+//       return res.status(404).send({ message: "Residency not found" });
+//     }
+
+//     res.send(residency);
+//   } catch (err) {
+//     res.status(500).send({ message: err.message });
+//   }
+// });
+
+
+
+
 import asyncHandler from "express-async-handler";
 import { prisma } from "../config/prismaConfig.js";
 
@@ -244,7 +322,7 @@ export const createResidency = asyncHandler(async (req, res) => {
     city,
     facilities,
     image,
-  } = req.body.data;
+  } = req.body; // Changed from req.body.data
 
   try {
     const residency = await prisma.residency.create({
