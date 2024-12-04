@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import { Link, NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="f-wrapper">
