@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flexColStart f-left">
           <img src="./logo2.png" alt="" width={120} />
           <span className="secondaryText">
-            Our vision is to bring seamless access <br />
+            Our vision is to bring seamless access  <br />
             to solar services to everyone.
           </span>
         </div>
