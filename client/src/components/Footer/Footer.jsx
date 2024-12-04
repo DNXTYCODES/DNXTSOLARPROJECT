@@ -17,9 +17,8 @@ const Footer = () => {
           <span className="primaryText">Information</span>
           <span className="secondaryText">Akanu Ibiam Hostel, University of Benin</span>
           <div className="flexCenter f-menu">
-            <span>Property</span>
-            <span>Services</span>
-            <span>Product</span>
+          <NavLink to="/properties">Products</NavLink>
+          <NavLink>Services</NavLink>
             <span>About Us</span>
           </div>
         </div>
