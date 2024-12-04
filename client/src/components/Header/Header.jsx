@@ -47,7 +47,7 @@ const Header = () => {
             style={getMenuStyles(menuOpened)}
           >
             <NavLink to="/properties">Products</NavLink>
-            <NavLink>Services</NavLink>
+            <span>Services</span>
 
             <a href="mailto:ayomatthew891@gmail.com">Contact</a>
 
