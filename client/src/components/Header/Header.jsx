@@ -17,8 +17,8 @@ const Header = () => {
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
   const { validateLogin } = useAuthCheck();
 
-  console.log(isAuthenticated);
-  console.log(user);
+  // console.log(isAuthenticated);
+  // console.log(user);
 
   const handleAddPropertyClick = () => {
     if (validateLogin()) {
@@ -31,7 +31,7 @@ const Header = () => {
         {/* logo */}
         <Link to="/">
           <img src="./logo.png" alt="logo" width={100} />
-        </Link>to show clients-matthew
+        </Link>09061404264
 
         {/* menu */}
         <OutsideClickHandler
