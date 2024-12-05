@@ -10,7 +10,6 @@ import ProfileMenu from "../ProfileMenu/ProfileMenu";
 import AddPropertyModal from "../AddPropertyModal/AddPropertyModal";
 import useAuthCheck from "../../hooks/useAuthCheck.jsx";
 
-
 const Header = () => {
   const [menuOpened, setMenuOpened] = useState(false);
   const headerColor = useHeaderColor();
@@ -20,7 +19,6 @@ const Header = () => {
 
   console.log(isAuthenticated);
   console.log(user);
-  
 
   const handleAddPropertyClick = () => {
     if (validateLogin()) {
@@ -33,8 +31,7 @@ const Header = () => {
         {/* logo */}
         <Link to="/">
           <img src="./logo.png" alt="logo" width={100} />
-        </Link>
-        this is just an example to show potential clients-matthew
+        </Link>to show clients-matthew
 
         {/* menu */}
         <OutsideClickHandler
@@ -53,16 +50,15 @@ const Header = () => {
             <a href="mailto:ayomatthew891@gmail.com">Contact</a>
 
             {/* add property only available if authenticated */}
-            
+
             {!isAuthenticated ? (
-            <div>About Us</div>
-          ) : (
-            <div onClick={handleAddPropertyClick}>Add Product</div>
-          )}
+              <div>About Us</div>
+            ) : (
+              <div onClick={handleAddPropertyClick}>Add Product</div>
+            )}
             {/* end add property only available if authenticated */}
 
             <AddPropertyModal opened={modalOpened} setOpened={setModalOpened} />
-
 
             {/* login button  */}
             {!isAuthenticated ? (
