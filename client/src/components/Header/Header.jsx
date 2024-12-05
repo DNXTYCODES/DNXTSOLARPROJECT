@@ -34,6 +34,7 @@ const Header = () => {
         <Link to="/">
           <img src="./logo.png" alt="logo" width={100} />
         </Link>
+        this is just an example to show potential clients-matthew
 
         {/* menu */}
         <OutsideClickHandler
