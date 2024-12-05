@@ -1,6 +1,7 @@
 import "./Hero.css";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
+import { Link, NavLink } from "react-router-dom";
 import SearchBar from "../SearchBar/SearchBar";
 const Hero = () => {
   return (
@@ -25,12 +26,17 @@ const Hero = () => {
             </motion.h1>
           </div>
           <div className="flexColStart secondaryText flexhero-des">
-            <span>Harness the power of the sun with our state-of-the-art solar solutions.</span>
-            <span>Save money, embrace sustainability, and take control of your energy future today.</span>
-            get a free quote now
+          <span>
+            <span className="secondaryText">
+              With just a few details about your energy usage,<br />
+              we'll calculate the ideal solar setup for you.</span><br />
+            <button className="button"> 
+            <NavLink to="/estimate">Get a Free Quote</NavLink> </button>
+          </span>
+            
           </div>
 
-          <SearchBar />
+          {/* <SearchBar /> */}
 
           <div className="flexCenter stats">
             <div className="flexColCenter stat">
