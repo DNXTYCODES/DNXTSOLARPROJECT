@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 // import "./index.css";
-import "./detailedPlansPage.css";
+import "./DetailedPlansPage.css";
 
 const plansData = [
   {
