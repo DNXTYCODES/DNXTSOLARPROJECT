@@ -43,8 +43,12 @@
   font-size: 0.95rem;
 }
 
-.button {
+.dppbutton {
   display: inline-block;
   margin-top: 1rem;
   text-align: center;
+}
+
+.dppbutton:hover{
+  background: var(--blue-gradient);
 }

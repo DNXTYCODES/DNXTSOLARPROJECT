@@ -55,7 +55,7 @@
   color: var(--primary);
 }
 
-.button {
+.dppbutton {
   margin-top: 2rem;
   width: 100%;
   padding: 1rem;
@@ -67,7 +67,7 @@
   transition: background-color 0.3s ease;
 }
 
-.button:hover {
+.dppbutton:hover {
   background-color: var(--blue-gradient);
   cursor: pointer;
 }

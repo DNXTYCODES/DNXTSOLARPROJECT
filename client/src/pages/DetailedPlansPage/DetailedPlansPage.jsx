@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 // import "./index.css";
-import "./DetailedPlansPage.css";
+import "./detailedPlansPage.css";
 
 const plansData = [
   {
@@ -130,12 +130,12 @@ const DetailedPlansPage = () => {
           </p>
         </div>
 
-        <button
+        <span
           className="dppbutton"
           onClick={() => (window.location.href = "/contact")}
         >
           Contact Us for More Details
-        </button>
+        </span>
       </div>
     </div>
   );

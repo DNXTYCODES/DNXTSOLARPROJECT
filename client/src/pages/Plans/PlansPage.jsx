@@ -68,7 +68,7 @@ const PlansPage = () => {
               <p><strong>Duration:</strong> {plan.duration}</p>
               <p><strong>Price:</strong> {plan.price}</p>
             </div>
-            <Link to={`/plans/${plan.id}`} className="button">
+            <Link to={`/plans/${plan.id}`} className="dppbutton">
               Learn More
             </Link>
           </div>
