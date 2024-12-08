@@ -30,14 +30,8 @@
 
 // export default Footer;
 
-
-
-
-
-
-
 import React from "react";
-import "./footer.css";
+import "./Footer.css";
 
 const Footer = () => {
   return (
@@ -47,8 +41,8 @@ const Footer = () => {
         <div className="footer-about">
           <h3 className="footer-title primaryText">About Us</h3>
           <p className="secondaryText">
-            We provide reliable and affordable solar solutions tailored to your energy needs.
-            Join us in powering a sustainable future.
+            We provide reliable and affordable solar solutions tailored to your
+            energy needs. Join us in powering a sustainable future.
           </p>
         </div>
 
@@ -57,16 +51,24 @@ const Footer = () => {
           <h3 className="footer-title primaryText">Quick Links</h3>
           <ul className="footer-link-list">
             <li>
-              <a href="/faq" className="footer-link">FAQs</a>
+              <a href="/faq" className="footer-link">
+                FAQs
+              </a>
             </li>
             <li>
-              <a href="/plans" className="footer-link">Our Plans</a>
+              <a href="/plans" className="footer-link">
+                Our Plans
+              </a>
             </li>
             <li>
-              <a href="/gallery" className="footer-link">Gallery</a>
+              <a href="/gallery" className="footer-link">
+                Gallery
+              </a>
             </li>
             <li>
-              <a href="/contact" className="footer-link">Contact Us</a>
+              <a href="/contact" className="footer-link">
+                Contact Us
+              </a>
             </li>
           </ul>
         </div>
@@ -76,23 +78,45 @@ const Footer = () => {
           <h3 className="footer-title primaryText">Contact Us</h3>
           <p className="secondaryText">Email: info@solarsolutions.com</p>
           <p className="secondaryText">Phone: +234 800 123 4567</p>
-          <p className="secondaryText">Address: 123 Solar Street, Lagos, Nigeria</p>
+          <p className="secondaryText">
+            Address: 123 Solar Street, Lagos, Nigeria
+          </p>
         </div>
 
         {/* Social Media */}
         <div className="footer-social">
           <h3 className="footer-title primaryText">Follow Us</h3>
           <div className="social-icons">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon"
+            >
               <img src="/images/facebook-icon.png" alt="Facebook" />
             </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon"
+            >
               <img src="/images/twitter-icon.png" alt="Twitter" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon"
+            >
               <img src="/images/instagram-icon.png" alt="Instagram" />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon">
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-icon"
+            >
               <img src="/images/linkedin-icon.png" alt="LinkedIn" />
             </a>
           </div>
@@ -101,12 +125,15 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="footer-bottom">
-        <p className="secondaryText">© {new Date().getFullYear()} Solar Solutions. All rights reserved.</p>
-        <a href="/privacy-policy" className="footer-bottom-link">Privacy Policy</a>
+        <p className="secondaryText">
+          © {new Date().getFullYear()} Solar Solutions. All rights reserved.
+        </p>
+        <a href="/privacy-policy" className="footer-bottom-link">
+          Privacy Policy
+        </a>
       </div>
     </footer>
   );
 };
 
 export default Footer;
-
