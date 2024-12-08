@@ -1,6 +1,6 @@
 import React from "react";
 // import "./index.css"; // Global styles
-import "./galleryPreview.css"; // Additional styles for gallery preview
+import "./GalleryPreview.css"; // Additional styles for gallery preview
 
 const GalleryPreview = () => {
   const installations = [
