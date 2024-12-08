@@ -1,0 +1,61 @@
+.plans-preview {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.plan-card {
+  background: var(--lightBlue);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Ensures even spacing */
+  height: 100%; /* Makes sure each card has a uniform height */
+}
+
+.plan-card:hover {
+  transform: scale(1.05);
+}
+
+.plan-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.plan-card .plan-details {
+  flex-grow: 1; /* Ensures the content area takes up remaining space */
+}
+
+.powerCapacity,
+.duration {
+  font-size: 0.9rem;
+  color: var(--black);
+  margin-top: 0.5rem;
+}
+
+.buttonn {
+  margin-top: 1rem;
+  width: 100%; /* Ensures button takes up the full width for alignment */
+  cursor: pointer;
+  font-weight: 500;
+  padding: 0.6rem 1.4rem;
+  color: white;
+  background: var(--blue-gradient);
+  border: none;
+  border-radius: 4px;
+  transition: all 300ms ease-in;
+}

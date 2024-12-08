@@ -14,6 +14,10 @@ import UserDetailContext from "./context/UserDetailContext";
 import Bookings from "./pages/Bookings/Bookings";
 import Favourites from "./pages/Favourites/Favourites";
 import Estimate from "./pages/Estimate/Estimate";
+import Gallery from "./pages/Gallery/Gallery";
+import DetailedPlansPage from "./pages/DetailedPlansPage/DetailedPlansPage";
+import FAQ from "./pages/Faq/Faq";
+import PlansPage from "./pages/Plans/PlansPage";
 
 function App() {
   const queryClient = new QueryClient();
@@ -39,6 +43,10 @@ function App() {
                 <Route path="/bookings" element={<Bookings />} />
                 <Route path="/favourites" element={<Favourites />} />
                 <Route path="/estimate" element={<Estimate />} />
+                <Route path="/gallery" element={<Gallery />} />
+                <Route path="/plans/:id" element={<DetailedPlansPage />} />
+                <Route path="/faq" element={<FAQ />} />
+                <Route path="/plans" element={<PlansPage />} />
               </Route>
             </Routes>
           </Suspense>

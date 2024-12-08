@@ -14,7 +14,7 @@ const BookingModal = ({ opened, setOpened, email, propertyId }) => {
   } = useContext(UserDetailContext);
 
   const handleBookingSuccess = () => {
-    toast.success("You have booked your visit", {
+    toast.success("Item Added to Cart", {
       position: "bottom-right",
     });
     setUserDetails((prev) => ({
@@ -46,7 +46,7 @@ const BookingModal = ({ opened, setOpened, email, propertyId }) => {
       <div className="flexColCenter" style={{gap: "1rem"}}>
         <DatePicker value={value} onChange={setValue} minDate={new Date()} />
         <Button disabled={!value || isLoading} onClick={() => mutate()}>
-          Book visit
+          Add to Cart
         </Button>
       </div>
     </Modal>
