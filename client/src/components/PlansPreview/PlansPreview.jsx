@@ -1,6 +1,6 @@
 import React from "react";
 // import "./index.css";
-import "./plansPreview.css";
+import "./PlansPreview.css";
 
 const PlansPreview = () => {
   const plans = [
