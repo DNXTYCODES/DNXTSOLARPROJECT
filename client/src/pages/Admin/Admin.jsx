@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // React Router for navigation
 import axios from "axios";
 import { toast } from "react-toastify";
 import AddPropertyModal from "../../components/AddPropertyModal/AddPropertyModal";
@@ -9,31 +10,48 @@ const Admin = () => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [modalOpened, setModalOpened] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false); // State to track admin status
+  const navigate = useNavigate();
 
   useEffect(() => {
+    verifyAdmin(); // Verify admin status on component mount
     fetchUsers();
     fetchProducts();
   }, []);
 
+  const verifyAdmin = async () => {
+    try {
+      const response = await axios.get("/api/auth/currentuser"); // API to get current user
+      const user = response.data;
+
+      if (user.role === "admin") {
+        setIsAdmin(true);
+      } else {
+        toast.error("Access denied. Admins only.");
+        navigate("/"); // Redirect to home page or another path
+      }
+    } catch (error) {
+      toast.error("Failed to verify user role");
+      console.error("Error verifying admin status:", error);
+      navigate("/"); // Redirect on error
+    }
+  };
+
   const fetchUsers = async () => {
     try {
       const response = await axios.get("/api/user/allusers");
-      console.log("Fetched users:", response.data); // Log response
-      setUsers(Array.isArray(response.data) ? response.data : []); // Safeguard
+      setUsers(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       toast.error("Failed to fetch users");
-      console.error("Error fetching users:", error); // Log the error
     }
   };
 
   const fetchProducts = async () => {
     try {
       const response = await axios.get("/api/residency/allresd");
-      console.log("Fetched products:", response.data); // Log response
-      setProducts(Array.isArray(response.data) ? response.data : []); // Safeguard
+      setProducts(Array.isArray(response.data) ? response.data : []);
     } catch (error) {
       toast.error("Failed to fetch products");
-      console.error("Error fetching products:", error); // Log the error
     }
   };
 
@@ -70,10 +88,14 @@ const Admin = () => {
     });
   };
 
+  if (!isAdmin) {
+    return null; // Render nothing while checking admin status
+  }
+
   return (
     <div className="admin-panel">
       <h1>Admin Panel</h1>
-
+      {/* Admin panel content */}
       <div className="actions">
         <button onClick={() => setModalOpened(true)} className="add-product-button">
           Add Product
@@ -99,18 +121,16 @@ const Admin = () => {
                   <td>{user.email}</td>
                   <td>
                     <ul>
-                      {Array.isArray(user.favResidenciesID) &&
-                        user.favResidenciesID.map((productId, index) => (
-                          <li key={index}>{productId}</li>
-                        ))}
+                      {user.favResidenciesID.map((productId, index) => (
+                        <li key={index}>{productId}</li>
+                      ))}
                     </ul>
                   </td>
                   <td>
                     <ul>
-                      {Array.isArray(user.bookedVisits) &&
-                        user.bookedVisits.map((visit, index) => (
-                          <li key={index}>{visit.date}</li>
-                        ))}
+                      {user.bookedVisits.map((visit, index) => (
+                        <li key={index}>{visit.date}</li>
+                      ))}
                     </ul>
                   </td>
                 </tr>
