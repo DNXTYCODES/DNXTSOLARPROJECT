@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-// import AddPropertyModal from "../../AddPropertyModal/AddPropertyModal";
 import AddPropertyModal from "../../components/AddPropertyModal/AddPropertyModal";
 import "./Admin.css";
 
@@ -20,24 +19,23 @@ const Admin = () => {
     try {
       const response = await axios.get("/api/user/allusers");
       console.log("Fetched users:", response.data); // Log response
-      setUsers(response.data);
+      setUsers(Array.isArray(response.data) ? response.data : []); // Safeguard
     } catch (error) {
       toast.error("Failed to fetch users");
       console.error("Error fetching users:", error); // Log the error
     }
   };
-  
+
   const fetchProducts = async () => {
     try {
       const response = await axios.get("/api/residency/allresd");
       console.log("Fetched products:", response.data); // Log response
-      setProducts(response.data);
+      setProducts(Array.isArray(response.data) ? response.data : []); // Safeguard
     } catch (error) {
       toast.error("Failed to fetch products");
       console.error("Error fetching products:", error); // Log the error
     }
   };
-  
 
   const handleDeleteProduct = async (id) => {
     try {
@@ -95,25 +93,33 @@ const Admin = () => {
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
-              <tr key={user.id}>
-                <td>{user.email}</td>
-                <td>
-                  <ul>
-                    {user.favResidenciesID.map((productId, index) => (
-                      <li key={index}>{productId}</li>
-                    ))}
-                  </ul>
-                </td>
-                <td>
-                  <ul>
-                    {user.bookedVisits.map((visit, index) => (
-                      <li key={index}>{visit.date}</li>
-                    ))}
-                  </ul>
-                </td>
+            {users.length > 0 ? (
+              users.map((user) => (
+                <tr key={user.id}>
+                  <td>{user.email}</td>
+                  <td>
+                    <ul>
+                      {Array.isArray(user.favResidenciesID) &&
+                        user.favResidenciesID.map((productId, index) => (
+                          <li key={index}>{productId}</li>
+                        ))}
+                    </ul>
+                  </td>
+                  <td>
+                    <ul>
+                      {Array.isArray(user.bookedVisits) &&
+                        user.bookedVisits.map((visit, index) => (
+                          <li key={index}>{visit.date}</li>
+                        ))}
+                    </ul>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="3">No users found</td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </section>
@@ -130,17 +136,23 @@ const Admin = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((product) => (
-              <tr key={product.id}>
-                <td>{product.title}</td>
-                <td>{product.description}</td>
-                <td>{product.price}</td>
-                <td>
-                  <button onClick={() => handleEditProduct(product)}>Edit</button>
-                  <button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
-                </td>
+            {products.length > 0 ? (
+              products.map((product) => (
+                <tr key={product.id}>
+                  <td>{product.title}</td>
+                  <td>{product.description}</td>
+                  <td>{product.price}</td>
+                  <td>
+                    <button onClick={() => handleEditProduct(product)}>Edit</button>
+                    <button onClick={() => handleDeleteProduct(product.id)}>Delete</button>
+                  </td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="4">No products found</td>
               </tr>
-            ))}
+            )}
           </tbody>
         </table>
       </section>
@@ -176,6 +188,3 @@ const Admin = () => {
 };
 
 export default Admin;
-
-
-
