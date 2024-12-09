@@ -121,7 +121,7 @@ const Header = () => {
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
 
   // Check if the logged-in user is an admin (for admin link visibility)
-  const adminEmails = ["ayomatthew@gmail.com", "admin2@example.com"];
+  const adminEmails = ["ayomatthew891@gmail.com", "admin2@example.com"];
   const isAdmin = isAuthenticated && user && adminEmails.includes(user.email);
 
   return (
