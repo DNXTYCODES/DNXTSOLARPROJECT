@@ -19,20 +19,25 @@ const Admin = () => {
   const fetchUsers = async () => {
     try {
       const response = await axios.get("/api/user/allusers");
+      console.log("Fetched users:", response.data); // Log response
       setUsers(response.data);
     } catch (error) {
       toast.error("Failed to fetch users");
+      console.error("Error fetching users:", error); // Log the error
     }
   };
-
+  
   const fetchProducts = async () => {
     try {
       const response = await axios.get("/api/residency/allresd");
+      console.log("Fetched products:", response.data); // Log response
       setProducts(response.data);
     } catch (error) {
       toast.error("Failed to fetch products");
+      console.error("Error fetching products:", error); // Log the error
     }
   };
+  
 
   const handleDeleteProduct = async (id) => {
     try {
@@ -89,7 +94,7 @@ const Admin = () => {
               <th>Bookings</th>
             </tr>
           </thead>
-          {/* <tbody>
+          <tbody>
             {users.map((user) => (
               <tr key={user.id}>
                 <td>{user.email}</td>
@@ -109,7 +114,7 @@ const Admin = () => {
                 </td>
               </tr>
             ))}
-          </tbody> */}
+          </tbody>
         </table>
       </section>
 
@@ -124,7 +129,7 @@ const Admin = () => {
               <th>Actions</th>
             </tr>
           </thead>
-          {/* <tbody>
+          <tbody>
             {products.map((product) => (
               <tr key={product.id}>
                 <td>{product.title}</td>
@@ -136,7 +141,7 @@ const Admin = () => {
                 </td>
               </tr>
             ))}
-          </tbody> */}
+          </tbody>
         </table>
       </section>
 
