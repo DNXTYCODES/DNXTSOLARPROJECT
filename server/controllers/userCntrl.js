@@ -139,3 +139,27 @@ export const getAllFavorites = asyncHandler(async (req, res) => {
     throw new Error(err.message);
   }
 });
+
+
+// fetch users update
+
+// Function to fetch all users for admin purposes
+export const getAllUsers = asyncHandler(async (req, res) => {
+  try {
+    const users = await prisma.user.findMany({
+      select: {
+        id: true,
+        name: true,
+        email: true,
+        bookedVisits: true,
+        favResidenciesID: true,
+      },
+    });
+
+    res.status(200).send(users);
+  } catch (err) {
+    console.error("Error fetching users:", err.message);
+    res.status(500).send({ message: "Error fetching users" });
+  }
+});
+

@@ -1,7 +1,6 @@
 import { Suspense, useState } from "react";
 import "./App.css";
 import Layout from "./components/Layout/Layout";
-
 import Website from "./pages/Website";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Properties from "./pages/Properties/Properties";
@@ -18,6 +17,8 @@ import Gallery from "./pages/Gallery/Gallery";
 import DetailedPlansPage from "./pages/DetailedPlansPage/DetailedPlansPage";
 import FAQ from "./pages/Faq/Faq";
 import PlansPage from "./pages/Plans/PlansPage";
+import Admin from "./pages/Admin/Admin";
+
 
 function App() {
   const queryClient = new QueryClient();
@@ -47,6 +48,7 @@ function App() {
                 <Route path="/plans/:id" element={<DetailedPlansPage />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/plans" element={<PlansPage />} />
+                <Route path="/admin" element={<Admin />} />
               </Route>
             </Routes>
           </Suspense>

@@ -382,3 +382,66 @@ export const getResidency = asyncHandler(async (req, res) => {
     res.status(500).send({ message: err.message });
   }
 });
+
+
+// added code for editing and deleting products
+
+// Update a residency
+export const updateResidency = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  const {
+    title,
+    description,
+    price,
+    address,
+    country,
+    city,
+    facilities,
+    image,
+  } = req.body;
+
+  try {
+    const updatedResidency = await prisma.residency.update({
+      where: { id },
+      data: {
+        title,
+        description,
+        price,
+        address,
+        country,
+        city,
+        facilities,
+        image,
+      },
+    });
+
+    res.send({ message: "Residency updated successfully", updatedResidency });
+  } catch (err) {
+    console.error("Error updating residency:", err.message);
+
+    if (err.code === "P2025") {
+      return res.status(404).send({ message: "Residency not found" });
+    }
+
+    res.status(500).send({ message: err.message });
+  }
+});
+
+// Delete a residency
+export const deleteResidency = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    await prisma.residency.delete({ where: { id } });
+    res.send({ message: "Residency deleted successfully" });
+  } catch (err) {
+    console.error("Error deleting residency:", err.message);
+
+    if (err.code === "P2025") {
+      return res.status(404).send({ message: "Residency not found" });
+    }
+
+    res.status(500).send({ message: err.message });
+  }
+});
+

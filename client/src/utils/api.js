@@ -316,3 +316,33 @@ export const createResidency = async (residencyData, token) => {
     throw error;
   }
 };
+
+
+
+// added code for updating and deleting products
+
+// Update a residency
+export const updateResidency = async (id, residencyData, token) => {
+  try {
+    const res = await api.put(`/residency/${id}`, residencyData, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    return res.data;
+  } catch (error) {
+    toast.error("Failed to update residency. Please try again.");
+    throw error;
+  }
+};
+
+// Delete a residency
+export const deleteResidency = async (id, token) => {
+  try {
+    await api.delete(`/residency/${id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    toast.success("Residency deleted successfully.");
+  } catch (error) {
+    toast.error("Failed to delete residency. Please try again.");
+    throw error;
+  }
+};
