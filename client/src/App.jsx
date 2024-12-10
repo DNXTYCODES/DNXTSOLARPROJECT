@@ -64,9 +64,6 @@
 
 
 
-
-
-
 import { Suspense, useState } from "react";
 import "./App.css";
 import Layout from "./components/Layout/Layout";
@@ -87,6 +84,7 @@ import DetailedPlansPage from "./pages/DetailedPlansPage/DetailedPlansPage";
 import FAQ from "./pages/Faq/Faq";
 import PlansPage from "./pages/Plans/PlansPage";
 import Admin from "./pages/Admin/Admin";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
   const queryClient = new QueryClient();
@@ -95,15 +93,19 @@ function App() {
     favourites: [],
     bookings: [],
     token: null,
-    email: "user@example.com", // Replace this with real user data
+    email: null, // This will be updated dynamically
   });
+
+  const { user, isAuthenticated } = useAuth0();
 
   // List of allowed admin emails
   const allowedAdmins = ["ayomatthew891@gmail.com", "admin2@example.com"];
 
-  // PrivateRoute component to protect admin route
+  // Check if the logged-in user is an admin
+  const isAdmin = isAuthenticated && user && allowedAdmins.includes(user.email);
+
+  // PrivateRoute component to protect the admin route
   const PrivateRoute = ({ children }) => {
-    const isAdmin = allowedAdmins.includes(userDetails.email);
     return isAdmin ? children : <Navigate to="/" />;
   };
 
@@ -126,15 +128,17 @@ function App() {
                 <Route path="/plans/:id" element={<DetailedPlansPage />} />
                 <Route path="/faq" element={<FAQ />} />
                 <Route path="/plans" element={<PlansPage />} />
-                {/* Admin route protected */}
-                <Route
-                  path="/admin"
-                  element={
-                    <PrivateRoute>
-                      <Admin />
-                    </PrivateRoute>
-                  }
-                />
+                {/* Protected Admin Route */}
+                {isAdmin && (
+                  <Route
+                    path="/admin"
+                    element={
+                      <PrivateRoute>
+                        <Admin />
+                      </PrivateRoute>
+                    }
+                  />
+                )}
               </Route>
             </Routes>
           </Suspense>
