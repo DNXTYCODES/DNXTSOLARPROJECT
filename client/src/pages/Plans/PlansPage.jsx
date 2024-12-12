@@ -6,8 +6,9 @@ const plans = [
   {
     id: "1",
     name: "Starter Plan",
-    description: "Ideal for small needs, such as charging phones and powering small lights.",
-    image: "r1.png",
+    description:
+      "Ideal for small needs, such as charging phones and powering small lights.",
+    image: "local.jpg",
     power: "500W",
     duration: "8-10 hours",
     price: "$500",
@@ -16,7 +17,7 @@ const plans = [
     id: "2",
     name: "Basic Plan",
     description: "Suitable for small households, powering fans, TVs, and more.",
-    image: "r2.png",
+    image: "install.jpg",
     power: "1kW",
     duration: "12-15 hours",
     price: "$1,200",
@@ -24,8 +25,9 @@ const plans = [
   {
     id: "3",
     name: "Premium Plan",
-    description: "Perfect for medium households or small offices with multiple appliances.",
-    image: "r3.png",
+    description:
+      "Perfect for medium households or small offices with multiple appliances.",
+    image: "localsolar.jpg",
     power: "2kW",
     duration: "18-20 hours",
     price: "$3,000",
@@ -33,21 +35,23 @@ const plans = [
   {
     id: "4",
     name: "Enterprise Plan",
-    description: "Designed for large households or offices with extensive energy needs.",
-    image: "r1.png",
+    description:
+      "Designed for large households or offices with extensive energy needs.",
+    image: "enterprise.jpeg",
     power: "5kW",
     duration: "24+ hours",
     price: "$7,500",
   },
-  // {
-  //   id: "custom-plan",
-  //   name: "Custom Plan",
-  //   description: "Tailored solutions for specific needs. Contact us for more information.",
-  //   image: "/images/custom-plan.jpg",
-  //   power: "Varies",
-  //   duration: "Varies",
-  //   price: "Contact Us",
-  // },
+  {
+    id: "custom-plan",
+    name: "Custom Plan",
+    description:
+      "Tailored solutions for specific needs. Contact us for more information.",
+    image: "premiumsolar.jpg",
+    power: "Varies",
+    duration: "Varies",
+    price: "Contact Us",
+  },
 ];
 
 const PlansPage = () => {
@@ -55,7 +59,8 @@ const PlansPage = () => {
     <div className="plansPage wrapper paddings">
       <h2 className="primaryText">Our Solar Plans</h2>
       <p className="secondaryText">
-        Explore our carefully designed solar plans that cater to different energy needs. Choose the one that fits your requirements.
+        Explore our carefully designed solar plans that cater to different
+        energy needs. Choose the one that fits your requirements.
       </p>
       <div className="plans-container flexColCenter">
         {plans.map((plan) => (
@@ -64,9 +69,15 @@ const PlansPage = () => {
             <h3 className="plan-title">{plan.name}</h3>
             <p className="plan-description">{plan.description}</p>
             <div className="plan-info">
-              <p><strong>Power:</strong> {plan.power}</p>
-              <p><strong>Duration:</strong> {plan.duration}</p>
-              <p><strong>Price:</strong> {plan.price}</p>
+              <p>
+                <strong>Power:</strong> {plan.power}
+              </p>
+              <p>
+                <strong>Duration:</strong> {plan.duration}
+              </p>
+              <p>
+                <strong>Price:</strong> {plan.price}
+              </p>
             </div>
             <Link to={`/plans/${plan.id}`} className="dppbutton">
               Learn More

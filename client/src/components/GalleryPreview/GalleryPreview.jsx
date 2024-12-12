@@ -8,26 +8,26 @@ const GalleryPreview = () => {
       id: 1,
       title: "Residential Installation",
       description: "A solar setup designed for homes, reducing electricity bills by 80%.",
-      image: "r1.png",
+      image: "install.jpg",
     },
     {
       id: 2,
       title: "Commercial Installation",
       description: "Large-scale solar installation for businesses to ensure sustainable energy.",
-      image: "r2.png",
+      image: "solargrid.jpg",
     },
     {
       id: 3,
       title: "Church Installation",
       description: "Solar systems optimized for uninterrupted power during services.",
-      image: "r1.png",
+      image: "church.jpeg",
     },
-    // {
-    //   id: 4,
-    //   title: "Industrial Installation",
-    //   description: "Customized industrial solar solutions for high energy consumption facilities.",
-    //   image: "/images/industrial.jpg",
-    // },
+    {
+      id: 4,
+      title: "Industrial Installation",
+      description: "Customized industrial solar solutions for high energy consumption facilities.",
+      image: "enterprise.jpeg",
+    },
   ];
 
   return (

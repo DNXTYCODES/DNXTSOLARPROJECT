@@ -7,7 +7,7 @@ const PlansPreview = () => {
     {
       id: 1,
       name: "Starter Plan",
-      image: "r1.png",
+      image: "local.jpg",
       description: "Ideal for basic needs like charging phones and small lights.",
       powerCapacity: "500W",
       duration: "5 hours for 5 phones",
@@ -16,7 +16,7 @@ const PlansPreview = () => {
     {
       id: 2,
       name: "Home Plan",
-      image: "r2.png",
+      image: "install.jpg",
       description: "Power for basic household appliances like fans and TVs.",
       powerCapacity: "2kW",
       duration: "4 hours for a fan, TV, and lights.",
@@ -25,7 +25,7 @@ const PlansPreview = () => {
     {
       id: 3,
       name: "Business Plan",
-      image: "r3.png",
+      image: "localsolar.jpg",
       description:
         "Supports medium businesses with energy for computers and lighting.",
       powerCapacity: "5kW",
@@ -35,7 +35,7 @@ const PlansPreview = () => {
     {
       id: 4,
       name: "Premium Plan",
-      image: "r1.png",
+      image: "enterprise.jpeg",
       description:
         "Designed for high power demands in offices or large homes.",
       powerCapacity: "10kW",

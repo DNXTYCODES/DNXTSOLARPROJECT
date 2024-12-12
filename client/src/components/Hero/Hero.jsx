@@ -73,7 +73,7 @@ const Hero = () => {
             }}
             className="image-container"
           >
-            <img src="./hero-image.WEBP" alt="houses" />
+            <img src="./panelpeople.jpg" alt="panelpeople" />
           </motion.div>
         </div>
       </div>
