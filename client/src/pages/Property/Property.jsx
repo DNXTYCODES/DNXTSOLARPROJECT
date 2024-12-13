@@ -270,7 +270,7 @@ const Property = () => {
             </div>
 
             {/* facilities */}
-            <div className="flexStart facilities">
+            {/* <div className="flexStart facilities">
               <div className="flexStart facility">
                 <FaShower size={20} color="#1F3E72" />
                 <span>{data?.facilities?.bathrooms} Bathrooms</span>
@@ -285,7 +285,7 @@ const Property = () => {
                 <MdMeetingRoom size={20} color="#1F3E72" />
                 <span>{data?.facilities.bedrooms} Room/s</span>
               </div>
-            </div>
+            </div> */}
 
             {/* description */}
             <span className="secondaryText" style={{ textAlign: "justify" }}>
@@ -293,12 +293,12 @@ const Property = () => {
             </span>
 
             {/* address */}
-            <div className="flexStart" style={{ gap: "1rem" }}>
+            {/* <div className="flexStart" style={{ gap: "1rem" }}>
               <MdLocationPin size={25} />
               <span className="secondaryText">
                 {data?.address} {data?.city} {data?.country}
               </span>
-            </div>
+            </div> */}
 
             {/* Add to Cart or Remove from Cart */}
             {bookings?.map((booking) => booking.id).includes(id) ? (
