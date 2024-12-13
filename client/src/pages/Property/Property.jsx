@@ -177,9 +177,6 @@
 
 // export default Property;
 
-
-
-
 import React, { useContext, useState } from "react";
 import { useMutation, useQuery } from "react-query";
 import { useLocation } from "react-router-dom";
@@ -288,9 +285,16 @@ const Property = () => {
             </div> */}
 
             {/* description */}
-            <span className="secondaryText" style={{ textAlign: "justify" }}>
+            {/* <span className="secondaryText" style={{ textAlign: "justify" }}>
               {data?.description}
-            </span>
+            </span> */}
+
+            {/* new description */}
+            <div className="secondaryText nd" style={{ textAlign: "justify" }}>
+              {data?.description?.split("\n").map((line, index) => (
+                <p key={index}>{line}</p>
+              ))}
+            </div>
 
             {/* address */}
             {/* <div className="flexStart" style={{ gap: "1rem" }}>

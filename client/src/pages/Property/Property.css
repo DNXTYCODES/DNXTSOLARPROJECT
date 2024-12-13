@@ -111,7 +111,7 @@
     width: 100%;
 }
 
-.facilities {
+.facilities, .nd {
     gap: 1rem;
     font-size: 0.9rem;
     padding: 1rem;
