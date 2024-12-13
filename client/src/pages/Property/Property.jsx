@@ -180,12 +180,6 @@
 
 
 
-
-
-
-
-
-
 import React, { useContext, useState } from "react";
 import { useMutation, useQuery } from "react-query";
 import { useLocation } from "react-router-dom";
@@ -197,9 +191,9 @@ import "./Property.css";
 import { FaShower } from "react-icons/fa";
 import { AiTwotoneCar } from "react-icons/ai";
 import { MdLocationPin, MdMeetingRoom } from "react-icons/md";
-import Map from "../../components/Map/Map";
 import useAuthCheck from "../../hooks/useAuthCheck";
 import { useAuth0 } from "@auth0/auth0-react";
+import BookingModal from "../../components/BookingModal/BookingModal";
 import UserDetailContext from "../../context/UserDetailContext.js";
 import { Button } from "@mantine/core";
 import { toast } from "react-toastify";
@@ -221,14 +215,15 @@ const Property = () => {
     setUserDetails,
   } = useContext(UserDetailContext);
 
-  const { mutate: removeFromCart, isLoading: removing } = useMutation({
+  const { mutate: cancelBooking, isLoading: cancelling } = useMutation({
     mutationFn: () => removeBooking(id, user?.email, token),
     onSuccess: () => {
       setUserDetails((prev) => ({
         ...prev,
         bookings: prev.bookings.filter((booking) => booking?.id !== id),
       }));
-      toast.success("Removed from cart", { position: "bottom-right" });
+
+      toast.success("Booking cancelled", { position: "bottom-right" });
     },
   });
 
@@ -246,7 +241,7 @@ const Property = () => {
     return (
       <div className="wrapper">
         <div className="flexCenter paddings">
-          <span>Error while fetching the product details</span>
+          <span>Error while fetching the property details</span>
         </div>
       </div>
     );
@@ -255,18 +250,18 @@ const Property = () => {
   return (
     <div className="wrapper">
       <div className="flexColStart paddings innerWidth property-container">
-        {/* Like button */}
+        {/* like button */}
         <div className="like">
           <Heart id={id} />
         </div>
 
-        {/* Image */}
-        <img src={data?.image} alt="product image" />
+        {/* image */}
+        <img src={data?.image} alt="home image" />
 
-        <div className="flexCenter property-details">
-          {/* Left section */}
+        <div className="property-details">
+          {/* left */}
           <div className="flexColStart left">
-            {/* Header */}
+            {/* head */}
             <div className="flexStart head">
               <span className="primaryText">{data?.title}</span>
               <span className="orangeText" style={{ fontSize: "1.5rem" }}>
@@ -274,29 +269,30 @@ const Property = () => {
               </span>
             </div>
 
-            {/* Facilities */}
+            {/* facilities */}
             <div className="flexStart facilities">
-              {/* Example features */}
               <div className="flexStart facility">
                 <FaShower size={20} color="#1F3E72" />
-                <span>{data?.facilities?.bathrooms} Feature 1</span>
+                <span>{data?.facilities?.bathrooms} Bathrooms</span>
               </div>
+
               <div className="flexStart facility">
                 <AiTwotoneCar size={20} color="#1F3E72" />
-                <span>{data?.facilities.parkings} Feature 2</span>
+                <span>{data?.facilities.parkings} Parking</span>
               </div>
+
               <div className="flexStart facility">
                 <MdMeetingRoom size={20} color="#1F3E72" />
-                <span>{data?.facilities.bedrooms} Feature 3</span>
+                <span>{data?.facilities.bedrooms} Room/s</span>
               </div>
             </div>
 
-            {/* Description */}
+            {/* description */}
             <span className="secondaryText" style={{ textAlign: "justify" }}>
               {data?.description}
             </span>
 
-            {/* Address */}
+            {/* address */}
             <div className="flexStart" style={{ gap: "1rem" }}>
               <MdLocationPin size={25} />
               <span className="secondaryText">
@@ -304,15 +300,15 @@ const Property = () => {
               </span>
             </div>
 
-            {/* Add to Cart button */}
+            {/* Add to Cart or Remove from Cart */}
             {bookings?.map((booking) => booking.id).includes(id) ? (
               <>
                 <Button
                   variant="outline"
                   w={"100%"}
                   color="red"
-                  onClick={() => removeFromCart()}
-                  disabled={removing}
+                  onClick={() => cancelBooking()}
+                  disabled={cancelling}
                 >
                   <span>Remove from Cart</span>
                 </Button>
@@ -327,14 +323,12 @@ const Property = () => {
                 Add to Cart
               </button>
             )}
-          </div>
 
-          {/* Right section */}
-          <div className="map">
-            <Map
-              address={data?.address}
-              city={data?.city}
-              country={data?.country}
+            <BookingModal
+              opened={modalOpened}
+              setOpened={setModalOpened}
+              propertyId={id}
+              email={user?.email}
             />
           </div>
         </div>
@@ -344,4 +338,3 @@ const Property = () => {
 };
 
 export default Property;
-
