@@ -60,17 +60,17 @@ const Facilities = ({
         title: "",
         description: "",
         price: 0,
-        country: "",
-        city: "",
-        address: "",
+        // country: "",
+        // city: "",
+        // address: "",
         image: null,
-        facilities: {
-          FirstFeature: "",
-          SecondFeature: "",
-          ThirdFeature: "",
-          FourthFeature: "",
-          FifthFeature: "",
-        },
+        // facilities: {
+        //   FirstFeature: "",
+        //   SecondFeature: "",
+        //   ThirdFeature: "",
+        //   FourthFeature: "",
+        //   FifthFeature: "",
+        // },
         userEmail: user?.email,
       })
       setOpened(false)
