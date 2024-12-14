@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { Box, Button, Group, NumberInput } from "@mantine/core";
+import { Box, Button, Group, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import React, { useContext } from "react";
 import UserDetailContext from "../../context/UserDetailContext";
@@ -16,25 +16,27 @@ const Facilities = ({
 }) => {
   const form = useForm({
     initialValues: {
-      bedrooms: propertyDetails.facilities.bedrooms,
-      parkings: propertyDetails.facilities.parkings,
-      bathrooms: propertyDetails.facilities.bathrooms,
+      FirstFeature: propertyDetails.facilities.FirstFeature,
+      SecondFeature: propertyDetails.facilities.SecondFeature,
+      ThirdFeature: propertyDetails.facilities.ThirdFeature,
+      FourthFeature: propertyDetails.facilities.FourthFeature,
+      FifthFeature: propertyDetails.facilities.FifthFeature,
     },
     validate: {
-      bedrooms: (value) => (value < 1 ? "Must have atleast one room" : null),
-      bathrooms: (value) =>
-        value < 1 ? "Must have atleast one bathroom" : null,
+      // FirstFeature: (value) => (value < 1 ? "Must have atleast one room" : null),
+      // ThirdFeature: (value) =>
+      //   value < 1 ? "Must have atleast one bathroom" : null,
     },
   });
 
-  const { bedrooms, parkings, bathrooms } = form.values;
+  const { FirstFeature, SecondFeature, ThirdFeature, FourthFeature, FifthFeature } = form.values;
 
   const handleSubmit = () => {
     const { hasErrors } = form.validate();
     if (!hasErrors) {
       setPropertyDetails((prev) => ({
         ...prev,
-        facilities: { bedrooms, parkings, bathrooms },
+        facilities: { FirstFeature, SecondFeature, ThirdFeature, FourthFeature, FifthFeature },
       }));
       mutate();
     }
@@ -49,7 +51,7 @@ const Facilities = ({
 
   const {mutate, isLoading} = useMutation({
     mutationFn: ()=> createResidency({
-        ...propertyDetails, facilities: {bedrooms, parkings , bathrooms},
+        ...propertyDetails, facilities: {FirstFeature, SecondFeature , ThirdFeature, FourthFeature, FifthFeature},
     }, token),
     onError: ({ response }) => toast.error(response.data.message, {position: "bottom-right"}),
     onSettled: ()=> {
@@ -63,9 +65,11 @@ const Facilities = ({
         address: "",
         image: null,
         facilities: {
-          bedrooms: 0,
-          parkings: 0,
-          bathrooms: 0,
+          FirstFeature: "",
+          SecondFeature: "",
+          ThirdFeature: "",
+          FourthFeature: "",
+          FifthFeature: "",
         },
         userEmail: user?.email,
       })
@@ -84,22 +88,34 @@ const Facilities = ({
           handleSubmit();
         }}
       >
-        <NumberInput
+        <TextInput
           withAsterisk
-          label="No of Bedrooms"
-          min={0}
-          {...form.getInputProps("bedrooms")}
+          label="FirstFeature"
+          // min={0}
+          {...form.getInputProps("FirstFeature")}
         />
-        <NumberInput
-          label="No of Parkings"
-          min={0}
-          {...form.getInputProps("parkings")}
+        <TextInput
+          label="SecondFeature"
+          // min={0}
+          {...form.getInputProps("SecondFeature")}
         />
-        <NumberInput
+        <TextInput
           withAsterisk
-          label="No of Bathrooms"
-          min={0}
-          {...form.getInputProps("bathrooms")}
+          label="ThirdFeature"
+          // min={0}
+          {...form.getInputProps("ThirdFeature")}
+        />
+        <TextInput
+          withAsterisk
+          label="FourthFeature"
+          // min={0}
+          {...form.getInputProps("FourthFeature")}
+        />
+        <TextInput
+          withAsterisk
+          label="FifthFeature"
+          // min={0}
+          {...form.getInputProps("FifthFeature")}
         />
         <Group position="center" mt="xl">
           <Button variant="default" onClick={prevStep}>
