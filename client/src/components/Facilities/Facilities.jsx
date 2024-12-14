@@ -7,6 +7,8 @@ import useProperties from "../../hooks/useProperties.jsx";
 import { useMutation } from "react-query";
 import { toast } from "react-toastify";
 import { createResidency } from "../../utils/api";
+
+
 const Facilities = ({
   prevStep,
   propertyDetails,
@@ -14,29 +16,29 @@ const Facilities = ({
   setOpened,
   setActiveStep,
 }) => {
-  const form = useForm({
-    initialValues: {
-      FirstFeature: propertyDetails.facilities.FirstFeature,
-      SecondFeature: propertyDetails.facilities.SecondFeature,
-      ThirdFeature: propertyDetails.facilities.ThirdFeature,
-      FourthFeature: propertyDetails.facilities.FourthFeature,
-      FifthFeature: propertyDetails.facilities.FifthFeature,
-    },
-    validate: {
-      // FirstFeature: (value) => (value < 1 ? "Must have atleast one room" : null),
-      // ThirdFeature: (value) =>
-      //   value < 1 ? "Must have atleast one bathroom" : null,
-    },
-  });
+  // const form = useForm({
+  //   initialValues: {
+  //     FirstFeature: propertyDetails.facilities.FirstFeature,
+  //     SecondFeature: propertyDetails.facilities.SecondFeature,
+  //     ThirdFeature: propertyDetails.facilities.ThirdFeature,
+  //     FourthFeature: propertyDetails.facilities.FourthFeature,
+  //     FifthFeature: propertyDetails.facilities.FifthFeature,
+  //   },
+  //   validate: {
+  //     // FirstFeature: (value) => (value < 1 ? "Must have atleast one room" : null),
+  //     // ThirdFeature: (value) =>
+  //     //   value < 1 ? "Must have atleast one bathroom" : null,
+  //   },
+  // });
 
-  const { FirstFeature, SecondFeature, ThirdFeature, FourthFeature, FifthFeature } = form.values;
+  // const { FirstFeature, SecondFeature, ThirdFeature, FourthFeature, FifthFeature } = form.values;
 
   const handleSubmit = () => {
     const { hasErrors } = form.validate();
     if (!hasErrors) {
       setPropertyDetails((prev) => ({
         ...prev,
-        facilities: { FirstFeature, SecondFeature, ThirdFeature, FourthFeature, FifthFeature },
+        // facilities: { FirstFeature, SecondFeature, ThirdFeature, FourthFeature, FifthFeature },
       }));
       mutate();
     }
@@ -51,7 +53,8 @@ const Facilities = ({
 
   const {mutate, isLoading} = useMutation({
     mutationFn: ()=> createResidency({
-        ...propertyDetails, facilities: {FirstFeature, SecondFeature , ThirdFeature, FourthFeature, FifthFeature},
+        ...propertyDetails, 
+        // facilities: {FirstFeature, SecondFeature , ThirdFeature, FourthFeature, FifthFeature},
     }, token),
     onError: ({ response }) => toast.error(response.data.message, {position: "bottom-right"}),
     onSettled: ()=> {
