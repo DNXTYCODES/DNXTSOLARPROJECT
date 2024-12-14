@@ -216,7 +216,7 @@ const AddPropertyModal = ({ opened, setOpened }) => {
 
 
   const nextStep = () => {
-    setActive((current) => (current < 2 ? current + 1 : current));
+    setActive((current) => (current < 3 ? current + 1 : current));
   };
 
   const prevStep = () => {
