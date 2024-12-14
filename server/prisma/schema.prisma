@@ -12,7 +12,7 @@ model User {
   name             String?
   email            String   @unique
   image            String?
-  role             String   @default("user") // New field for role
+  // role             String   @default("user") // New field for role
   bookedVisits     Json[]
   favResidenciesID String[] @db.ObjectId
 }
@@ -22,13 +22,13 @@ model Residency {
   title       String
   description String
   price       Int
-  address     String
-  city        String
-  country     String
+  // address     String
+  // city        String
+  // country     String
   image       String
-  facilities  Json
+  // facilities  Json
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  @@unique(fields: [address])
+  // @@unique(fields: [address])
 }
