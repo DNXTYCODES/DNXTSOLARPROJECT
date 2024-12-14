@@ -88,7 +88,7 @@ const Facilities = ({
           handleSubmit();
         }}
       >
-        {/* <TextInput
+        <TextInput
           withAsterisk
           label="FirstFeature"
           // min={0}
@@ -116,7 +116,7 @@ const Facilities = ({
           label="FifthFeature"
           // min={0}
           {...form.getInputProps("FifthFeature")}
-        /> */}
+        />
         <Group position="center" mt="xl">
           <Button variant="default" onClick={prevStep}>
             Back

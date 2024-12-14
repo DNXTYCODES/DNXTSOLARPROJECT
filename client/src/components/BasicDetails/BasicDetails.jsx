@@ -36,7 +36,7 @@ const BasicDetails = ({ prevStep, nextStep, propertyDetails, setPropertyDetails 
         }}>
         <TextInput
           withAsterisk
-          label="Title"
+          label="Title"RRR
           placeholder="Product Name"
           {...form.getInputProps("title")}
         />
