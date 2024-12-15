@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { toast } from "react-toastify";
 import AddPropertyModal from "../../components/AddPropertyModal/AddPropertyModal";
+import {
+  getAllProperties,
+  updateResidency,
+  deleteResidency,
+} from "../../utils/api"; // Importing API functions
 import "./Admin.css";
 
-const Admin = () => {
+const Admin = ({ token }) => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [modalOpened, setModalOpened] = useState(false);
@@ -13,38 +17,37 @@ const Admin = () => {
     fetchProducts();
   }, []);
 
-  // Fetch products from the database
+  // Fetch products using the getAllProperties API function
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("/api/residency/allresd");
-      setProducts(Array.isArray(response.data) ? response.data : []);
+      const data = await getAllProperties(); // Fetch data from API
+      setProducts(data);
     } catch (error) {
-      toast.error("Failed to fetch products");
+      console.error("Error fetching products:", error);
     }
   };
 
-  // Delete product
+  // Delete product using deleteResidency API function
   const handleDeleteProduct = async (id) => {
     if (window.confirm("Are you sure you want to delete this product?")) {
       try {
-        await axios.delete(`/api/residency/${id}`);
-        toast.success("Product deleted successfully");
+        await deleteResidency(id, token); // Use token for authorization
         setProducts(products.filter((product) => product.id !== id));
       } catch (error) {
-        toast.error("Failed to delete product");
+        console.error("Error deleting product:", error);
       }
     }
   };
 
-  // Edit product
+  // Edit product - Open form with selected product data
   const handleEditProduct = (product) => {
     setSelectedProduct(product);
   };
 
-  // Update product in the database
+  // Update product using updateResidency API function
   const handleUpdateProduct = async () => {
     try {
-      await axios.put(`/api/residency/${selectedProduct.id}`, selectedProduct);
+      await updateResidency(selectedProduct.id, selectedProduct, token); // Use token for authorization
       toast.success("Product updated successfully");
       setProducts((prev) =>
         prev.map((prod) =>
@@ -53,7 +56,7 @@ const Admin = () => {
       );
       setSelectedProduct(null);
     } catch (error) {
-      toast.error("Failed to update product");
+      console.error("Error updating product:", error);
     }
   };
 
