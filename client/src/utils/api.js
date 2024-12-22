@@ -13,6 +13,7 @@ export const getAllProperties = async () => {
     return response.data;
   } catch (error) {
     toast.error("Failed to fetch properties");
+    toast.error("database loading too slow, pay for the backend bro 😒😒😂");
     throw error;
   }
 };
