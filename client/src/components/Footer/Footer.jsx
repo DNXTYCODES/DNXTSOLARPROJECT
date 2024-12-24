@@ -1,35 +1,3 @@
-// import React from "react";
-// import "./Footer.css";
-// import { Link, NavLink } from "react-router-dom";
-// const Footer = () => {
-//   return (
-//     <div className="f-wrapper">
-//       <div className="paddings innerWidth flexCenter f-container">
-//         {/* left side */}
-//         <div className="flexColStart f-left">
-//           <img src="./logo2.png" alt="" width={120} />
-//           <span className="secondaryText">
-//             Our vision is to bring seamless access  <br />
-//             to solar services to everyone.
-//           </span>
-//         </div>
-
-//         <div className="flexColStart f-right">
-//           <span className="primaryText">Information</span>
-//           <span className="secondaryText">Akanu Ibiam Hostel, University of Benin</span>
-//           <div className="flexCenter f-menu">
-//           <NavLink to="/properties">Products</NavLink>
-//           <span>Services</span>
-//             <span>About Us</span>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Footer;
-
 import React from "react";
 import "./Footer.css";
 
@@ -93,7 +61,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="social-icon"
             >
-              <img src="/images/facebook-icon.png" alt="Facebook" />
+              <img src="fb.jpeg" alt="Facebook" />
             </a>
             <a
               href="https://twitter.com"
@@ -101,7 +69,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="social-icon"
             >
-              <img src="/images/twitter-icon.png" alt="Twitter" />
+              <img src="x.jpeg" alt="Twitter" />
             </a>
             <a
               href="https://instagram.com"
@@ -109,7 +77,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="social-icon"
             >
-              <img src="/images/instagram-icon.png" alt="Instagram" />
+              <img src="ig.jpeg" alt="Instagram" />
             </a>
             <a
               href="https://linkedin.com"
@@ -117,7 +85,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="social-icon"
             >
-              <img src="/images/linkedin-icon.png" alt="LinkedIn" />
+              <img src="ld.jpeg" alt="LinkedIn" />
             </a>
           </div>
         </div>
