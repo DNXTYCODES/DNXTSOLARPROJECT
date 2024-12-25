@@ -13,7 +13,7 @@ export const getAllProperties = async () => {
     return response.data;
   } catch (error) {
     // toast.error("Failed to fetch properties");
-    toast.error("database loading too slow, pay for the backend bro 😒😒😂");
+    toast.error("you are seeing this message because the backend server is currently free and the loading time of the free server is slow");
     throw error;
   }
 };
