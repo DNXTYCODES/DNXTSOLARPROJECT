@@ -1,85 +1,116 @@
-import React, { useState } from "react";
-import {
-  Accordion,
-  AccordionItem,
-  AccordionItemHeading,
-  AccordionItemButton,
-  AccordionItemPanel,
-  AccordionItemState,
-} from "react-accessible-accordion";
-import "react-accessible-accordion/dist/fancy-example.css";
-import {
-  MdOutlineArrowDropDown,
-  MdOutlineArrowDropDownCircle,
-} from "react-icons/md";
-import data from "../../utils/accordion.jsx";
+import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import "./Value.css";
-// Demo styles, see 'Styles' section below for some notes on use.
 
 const Value = () => {
+  const pages = [
+    {
+      sections: [
+        {
+          title: "Insight",
+          blogs: [
+            "Understanding Market Trends",
+            "AI in Everyday Life",
+            "Sustainable Development",
+            "Future of Renewable Energy",
+            "Impact of Globalization",
+            "Technology and Innovation",
+          ],
+        },
+        {
+          title: "News and Updates",
+          blogs: [
+            "Global Economic Outlook",
+            "Tech Industry Shifts",
+            "Political Changes Worldwide",
+            "Climate Change Reports",
+            "Breaking News Headlines",
+          ],
+        },
+      ],
+    },
+    {
+      sections: [
+        {
+          title: "Podcast",
+          blogs: [
+            "Episode 1: Tech Revolution",
+            "Episode 2: Mental Health",
+            "Episode 3: Remote Work Insights",
+            "Episode 4: Green Energy",
+            "Episode 5: Space Exploration",
+            "Episode 6: History of AI",
+          ],
+        },
+        {
+          title: "More News and Updates",
+          blogs: [
+            "Tech Mergers and Acquisitions",
+            "Breaking Business News",
+            "Healthcare Policies",
+            "Major Sports Events",
+            "Global Climate Strikes",
+            "Economic Recession Trends",
+          ],
+        },
+      ],
+    },
+  ];
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+        },
+      },
+    ],
+  };
+
   return (
-    <section id="value" className="v-wrapper">
-      <div className="paddings innerWidth flexCenter v-container">
-        {/* left side */}
+    <section id="value" className="v-wrapper paddings wrapper">
+      
+      <div className="v-container innerWidth flexColStart">
+        {/* Left Side */}
         <div className="v-left">
-          <div className="image-container">
-            <img src="./value.WEBP" alt="" />
-          </div>
+          <h2 className="kc">Knowledge Centre</h2>
         </div>
 
-        {/* right */}
-        <div className="flexColStart v-right">
-          <span className="orangeText">Our Value</span>
-
-          <span className="primaryText">Empowering Your Energy Choices</span>
-
-          <span className="secondaryText">
-          We are committed to delivering unmatched value with every solar solution we provide.
-            <br />
-            Here’s how we ensure the best for you:
-          </span>
-
-          <Accordion
-            className="accordion"
-            allowMultipleExpanded={false}
-            preExpanded={[0]}
-          >
-            {data.map((item, i) => {
-              const [className, setClassName] = useState(null);
-              return (
-                <AccordionItem
-                  className={`accordionItem ${className}`}
-                  uuid={i}
-                  key={i}
-                >
-                  <AccordionItemHeading>
-                    <AccordionItemButton className="flexCenter accordionButton ">
-                      {/* just for getting state of item */}
-                      <AccordionItemState>
-                        {({ expanded }) =>
-                          expanded
-                            ? setClassName("expanded")
-                            : setClassName("collapsed")
-                        }
-                      </AccordionItemState>
-                      <div className="flexCenter icon">{item.icon}</div>
-                      <span className="primaryText">{item.heading}</span>
-                      <div className="flexCenter icon">
-                        <MdOutlineArrowDropDown size={20} />
-                      </div>
-                    </AccordionItemButton>
-                  </AccordionItemHeading>
-                  <AccordionItemPanel>
-                    <p className="secondaryText">{item.detail}</p>
-                  </AccordionItemPanel>
-                </AccordionItem>
-              );
-            })}
-          </Accordion>
+        {/* Right Side */}
+        <div className="v-right">
+          <Slider {...sliderSettings}>
+            {pages.map((page, pageIndex) => (
+              <div key={pageIndex} className="v-page">
+                {page.sections.map((section, sectionIndex) => (
+                  <div key={sectionIndex} className="v-section">
+                    <h3>{section.title}</h3>
+                    <ul>
+                      {section.blogs.map((blog, blogIndex) => (
+                        <li key={blogIndex}>
+                          <a href="#">{blog}</a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </Slider>
         </div>
+        <p className="underline"><a className="right" href="/knowledge">Visit our Knowledge Centre</a></p>
       </div>
     </section>
   );
 };
 
 export default Value;
+

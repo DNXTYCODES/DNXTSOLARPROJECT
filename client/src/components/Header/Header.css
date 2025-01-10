@@ -1,12 +1,13 @@
 .h-wrapper {
   z-index: 99;
   position: sticky;
+  background-color: white;
   top: 0;
 }
 .h-container {
   padding-top: 1rem;
   padding-bottom: 1rem;
-  color: var(--secondary);
+  color: black;
   justify-content: space-between;
 }
 

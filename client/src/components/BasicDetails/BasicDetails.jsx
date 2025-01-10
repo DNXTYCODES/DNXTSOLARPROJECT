@@ -36,23 +36,35 @@ const BasicDetails = ({ prevStep, nextStep, propertyDetails, setPropertyDetails 
         }}>
         <TextInput
           withAsterisk
-          label="Title"RRR
+          label="Pubication Title"RRR
           placeholder="Product Name"
           {...form.getInputProps("title")}
+        />
+        <Textarea
+          placeholder="Publication Content"
+          label="content"
+          withAsterisk
+          {...form.getInputProps("description")}
+        />
+        {/* <Textarea
+          placeholder="Description"
+          label="Description"
+          withAsterisk
+          {...form.getInputProps("description")}
         />
         <Textarea
           placeholder="Description"
           label="Description"
           withAsterisk
           {...form.getInputProps("description")}
-        />
-        <NumberInput
+        /> */}
+        {/* <NumberInput
           withAsterisk
           label="Price"
           placeholder="1000"
           min={0}
           {...form.getInputProps("price")}
-        />
+        /> */}
         <Group position="center" mt="xl">
           <Button variant="default" onClick={prevStep}>
             Back

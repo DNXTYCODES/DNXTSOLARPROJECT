@@ -1,3 +1,4 @@
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -17,11 +18,15 @@ model User {
   favResidenciesID String[] @db.ObjectId
 }
 
+
+
 model Residency {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   title       String
   description String
-  price       Int
+  // category    String
+  // author      String 
+  // price       Int
   // address     String
   // city        String
   // country     String
@@ -32,3 +37,20 @@ model Residency {
 
   // @@unique(fields: [address])
 }
+
+
+// model Residency {
+//   id          String   @id @default(auto()) @map("_id") @db.ObjectId
+//   title       String
+//   description String
+//   price       Int
+//   // address     String
+//   // city        String
+//   // country     String
+//   image       String
+//   // facilities  Json
+//   createdAt   DateTime @default(now())
+//   updatedAt   DateTime @updatedAt
+
+//   // @@unique(fields: [address])
+// }

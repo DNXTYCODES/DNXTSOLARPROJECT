@@ -14,12 +14,13 @@ const Header = () => {
   const headerColor = useHeaderColor();
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
 
+
   // Check if the logged-in user is an admin (for admin link visibility)
   const adminEmails = ["ayomatthew891@gmail.com", "admin2@example.com"];
   const isAdmin = isAuthenticated && user && adminEmails.includes(user.email);
 
   return (
-    <section className="h-wrapper" style={{ background: headerColor }}>
+    <section className="h-wrapper">
       <div className="flexCenter innerWidth paddings h-container">
         {/* Logo */}
         <Link to="/">
@@ -36,6 +37,10 @@ const Header = () => {
             <NavLink to="/properties">Products</NavLink>
             <span>Services</span>
             <a href="mailto:ayomatthew891@gmail.com">Contact</a>
+              {/* <NavLink to="/adminpeople" className="admin-link">
+                admin people
+              </NavLink> */}
+
 
             {/* Admin Link */}
             {isAdmin && (
@@ -45,13 +50,13 @@ const Header = () => {
             )}
 
             {/* Login/Logout Button */}
-            {!isAuthenticated ? (
+            {/* {!isAuthenticated ? (
               <button className="button" onClick={loginWithRedirect}>
                 Login
               </button>
             ) : (
               <ProfileMenu user={user} logout={logout} />
-            )}
+            )} */}
           </div>
         </OutsideClickHandler>
 

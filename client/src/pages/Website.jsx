@@ -19,14 +19,14 @@ const Website = () => {
       <div className="white-gradient" />
       <Hero />
     </div>
-    <Companies />
-    <Residencies/>
+    {/* <Companies /> */}
+    {/* <Residencies/> */}
     <PlansPreview/>
-    <HeroReview/>
-    <GalleryPreview/>
+    {/* <HeroReview/> */}
     <Value/>
-    <Contact/>
-    <GetStarted/>
+    <GalleryPreview/>
+    {/* <Contact/> */}
+    {/* <GetStarted/> */}
   </div>
   )
 }

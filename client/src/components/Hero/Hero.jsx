@@ -26,19 +26,20 @@ const Hero = () => {
             </motion.h1>
           </div>
           <div className="flexColStart secondaryText flexhero-des">
-          <span>
-            <span className="secondaryText">
-              With just a few details about your energy usage,<br />
-              we'll calculate the ideal solar setup for you.</span><br />
-            <button className="button"> 
-            <NavLink to="/estimate">Get a Free Quote</NavLink> </button>
-          </span>
-            
+            <span>
+              <span className="underline white">
+                Read More
+              </span>
+              <br />
+              {/* <button className="button"> 
+                <NavLink to="/estimate">Get a Free Quote</NavLink> 
+              </button> */}
+            </span>
           </div>
 
           {/* <SearchBar /> */}
 
-          <div className="flexCenter stats">
+          {/* <div className="flexCenter stats">
             <div className="flexColCenter stat">
               <span>
                 <CountUp start={8800} end={9000} duration={4} /> <span>+</span>
@@ -59,11 +60,11 @@ const Hero = () => {
               </span>
               <span className="secondaryText">Awards Winning</span>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* right side */}
-        <div className="flexCenter hero-right">
+        {/* <div className="flexCenter hero-right">
           <motion.div
             initial={{ x: "7rem", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -75,7 +76,7 @@ const Hero = () => {
           >
             <img src="panelpeople1.jpg" alt="panelpeople" />
           </motion.div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

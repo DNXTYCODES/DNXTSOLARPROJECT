@@ -1,62 +1,90 @@
 import React from "react";
-// import "./index.css"; // Global styles
-import "./GalleryPreview.css"; // Additional styles for gallery preview
+// import "./index.css";
+import "./GalleryPreview.css";
 
 const GalleryPreview = () => {
-  const installations = [
+  const plans = [
     {
       id: 1,
-      title: "Residential Installation",
-      description: "A solar setup designed for homes, reducing electricity bills by 80%.",
-      image: "install.jpg",
+      name: "Starter Plan",
+      image: "Ace-Anan-Ankomah-1024x1024-1.png",
+      role: "Managing Partner"
     },
     {
       id: 2,
-      title: "Commercial Installation",
-      description: "Large-scale solar installation for businesses to ensure sustainable energy.",
-      image: "solargrid.jpg",
+      name: "Home Plan",
+      image: "Frank-Nimako-Akowuah.png",
     },
     {
       id: 3,
-      title: "Church Installation",
-      description: "Solar systems optimized for uninterrupted power during services.",
-      image: "church.jpeg",
+      name: "Business Plan",
+      image: "SBAK-Headshot-Square.png",
     },
     {
       id: 4,
-      title: "Industrial Installation",
-      description: "Customized industrial solar solutions for high energy consumption facilities.",
-      image: "enterprise.jpeg",
+      name: "Premium Plan",
+      image:
+        "AAG-NEW.png",
+    },
+    {
+      id: 5,
+      name: "Starter Plan",
+      image: "Daad-Akwasi.png",
+    },
+    {
+      id: 6,
+      name: "Home Plan",
+      image: "Frank-Nimako-Akowuah.png",
+    },
+    {
+      id: 7,
+      name: "Business Plan",
+      image: "Golda-Denyo.png",
+    },
+    {
+      id: 8,
+      name: "Premium Plan",
+      image:
+        "Seyram-Dzikunu.png",
     },
   ];
 
   return (
-    <section className="gallery-preview paddings wrapper">
+    <section className="plans-preview paddings wrapper">
       <div className="innerWidth flexColStart">
-        <h2 className="primaryText">Our Solar Installations</h2>
-        <p className="secondaryText">
-          Explore some of our recent solar installations and see the difference
-          we make.
-        </p>
-        <div className="gallery-preview-grid">
-          {installations.map((install) => (
-            <div className="gallery-item" key={install.id}>
+        
+        <h2>Our People</h2>
+        <div className="plans-grid space-up">
+          {plans.map((plan) => (
+            <div className="plan-card" key={plan.id}>
               <img
-                src={install.image}
-                alt={install.title}
-                className="gallery-image"
+                src={plan.image}
+                alt={plan.name}
+                className="plan-image"
+                onClick={() => (window.location.href = `/plans/${plan.id}`)}
               />
-              <h3 className="orangeText">{install.title}</h3>
-              <p className="secondaryText">{install.description}</p>
+              <p
+                className="paddings"
+                onClick={() => (window.location.href = `/plans/${plan.id}`)}
+              >
+                {" "}
+                <a>{plan.name}</a>{" "}
+              </p>
+              {/* <p className="secondaryText">{plan.description}</p>
+              <p className="powerCapacity">Power Capacity: {plan.powerCapacity}</p>
+              <p className="duration">Estimated Duration: {plan.duration}</p> */}
+              {/* <button
+                className="buttonn"
+                onClick={() => (window.location.href = `/plans/${plan.id}`)}
+              >
+                Learn More
+              </button> */}
             </div>
           ))}
         </div>
-        <button
-          className="button"
-          onClick={() => (window.location.href = "/gallery")}
-        >
-          View Full Gallery
-        </button>
+          <p className="right underline">
+            <a href="/people">Visit our People Page</a>
+          </p>
       </div>
     </section>
   );

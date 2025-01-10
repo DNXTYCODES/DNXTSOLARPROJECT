@@ -7,68 +7,62 @@ const PlansPreview = () => {
     {
       id: 1,
       name: "Starter Plan",
-      image: "local.jpg",
-      description: "Ideal for basic needs like charging phones and small lights.",
-      powerCapacity: "500W",
-      duration: "5 hours for 5 phones",
-      summary: "Perfect for small-scale use.",
+      image: "cc3-1024x640-1.png",
     },
     {
       id: 2,
       name: "Home Plan",
-      image: "install.jpg",
-      description: "Power for basic household appliances like fans and TVs.",
-      powerCapacity: "2kW",
-      duration: "4 hours for a fan, TV, and lights.",
-      summary: "Reliable power for everyday home use.",
+      image: "ficm-1024x640-1.png",
     },
     {
       id: 3,
       name: "Business Plan",
-      image: "localsolar.jpg",
-      description:
-        "Supports medium businesses with energy for computers and lighting.",
-      powerCapacity: "5kW",
-      duration: "6 hours for computers, lighting, and other equipment.",
-      summary: "Power solutions for small to medium businesses.",
+      image: "ei-1024x640-1.png",
     },
     {
       id: 4,
       name: "Premium Plan",
-      image: "enterprise.jpeg",
-      description:
-        "Designed for high power demands in offices or large homes.",
-      powerCapacity: "10kW",
-      duration: "10 hours for multiple appliances and devices.",
-      summary: "Advanced energy for large-scale needs.",
+      image:
+        "Dispute-resolution-practices-progressing-across-the-continent-Publication-1024x640-1.png",
     },
   ];
 
   return (
     <section className="plans-preview paddings wrapper">
       <div className="innerWidth flexColStart">
-        <h2 className="primaryText">Our Solar Plans</h2>
-        <p className="secondaryText">
-          Choose from our range of solar installation plans tailored to your
-          energy needs.
-        </p>
-        <div className="plans-grid">
+        
+        <h2>Our Practice Areas</h2>
+        <div className="plans-grid space-up">
           {plans.map((plan) => (
             <div className="plan-card" key={plan.id}>
-              <img src={plan.image} alt={plan.name} className="plan-image" />
-              <h3 className="orangeText">{plan.name}</h3>
-              <p className="secondaryText">{plan.description}</p>
+              <img
+                src={plan.image}
+                alt={plan.name}
+                className="plan-image"
+                onClick={() => (window.location.href = `/plans/${plan.id}`)}
+              />
+              <p
+                className="paddings"
+                onClick={() => (window.location.href = `/plans/${plan.id}`)}
+              >
+                {" "}
+                <a>{plan.name}</a>{" "}
+              </p>
+              {/* <p className="secondaryText">{plan.description}</p>
               <p className="powerCapacity">Power Capacity: {plan.powerCapacity}</p>
-              <p className="duration">Estimated Duration: {plan.duration}</p>
-              <button
+              <p className="duration">Estimated Duration: {plan.duration}</p> */}
+              {/* <button
                 className="buttonn"
                 onClick={() => (window.location.href = `/plans/${plan.id}`)}
               >
                 Learn More
-              </button>
+              </button> */}
             </div>
           ))}
         </div>
+          <p className="right underline">
+            <a href="/expertise">Visit our Experise Page</a>
+          </p>
       </div>
     </section>
   );
